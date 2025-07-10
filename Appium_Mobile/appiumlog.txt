@@ -1,0 +1,11 @@
+2025-07-09 07:38:58:796 [Appium] Welcome to Appium v2.17.1
+2025-07-09 07:38:58:800 [Appium] Non-default server args:
+2025-07-09 07:38:58:804 [Appium] { address: '127.0.0.1', localTimezone: true }
+2025-07-09 07:38:58:805 [Appium] The autodetected Appium home path: C:\Users\91852\.appium
+2025-07-09 07:38:58:806 [Appium] Attempting to load driver uiautomator2...
+2025-07-09 07:38:58:811 [Appium] Requiring driver at C:\Users\91852\.appium\node_modules\appium-uiautomator2-driver\build\index.js
+2025-07-09 07:39:00:202 [Appium] AndroidUiautomator2Driver has been successfully loaded in 1.395s
+2025-07-09 07:39:00:234 [Appium] Appium REST http interface listener started on http://127.0.0.1:4723
+2025-07-09 07:39:00:235 [Appium] Available drivers:
+2025-07-09 07:39:00:235 [Appium]   - uiautomator2@2.29.6 (automationName 'UiAutomator2')
+2025-07-09 07:39:00:236 [Appium] No plugins have been installed. Use the "appium plugin" command to install the one(s) you want to use.
