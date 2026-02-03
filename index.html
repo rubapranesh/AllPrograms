@@ -1,66 +1,238 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruba | Staff SDET</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#020617;
+      --text:#f8fafc;
+      --primary:#6c63ff;
+      --secondary:#00d9ff;
+      --card:#111827;
+      --glass: rgba(255,255,255,0.08);
+    }
+
+    body.light {
+      --bg:#f8fafc;
+      --text:#020617;
+      --card:#ffffff;
+      --glass: rgba(0,0,0,0.05);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+    body{
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    /* Cursor glow */
+    .cursor{
+      position:fixed;
+      width:20px;height:20px;
+      border-radius:50%;
+      background:radial-gradient(circle,var(--secondary),transparent 60%);
+      pointer-events:none;
+      transform:translate(-50%,-50%);
+      z-index:999;
+    }
+
+    /* Floating particles */
+    .particles span{
+      position:fixed;
+      width:6px;height:6px;
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      border-radius:50%;
+      opacity:.5;
+      animation:float 18s linear infinite;
+    }
+
+    @keyframes float{
+      from{transform:translateY(110vh)}
+      to{transform:translateY(-10vh)}
+    }
+
+    /* Toggle */
+    .toggle{
+      position:fixed;top:20px;right:20px;
+      font-size:1.5rem;cursor:pointer;z-index:10
+    }
+
+    /* Hero */
+    header{
+      height:100vh;display:flex;align-items:center;justify-content:center;
+      text-align:center;position:relative
+    }
+
+    .hero h1{font-size:3.8rem}
+    .hero span{
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent
+    }
+
+    .hero p{opacity:.9;margin:20px 0}
+
+    .btn{
+      padding:14px 32px;border-radius:30px;
+      background:linear-gradient(90deg,var(--primary),var(--secondary));
+      color:#000;text-decoration:none;font-weight:600;margin:8px;
+      display:inline-block;transition:.3s
+    }
+
+    .btn:hover{transform:scale(1.1)}
+
+    section{padding:90px 12%}
+    h2{text-align:center;font-size:2.6rem;margin-bottom:50px}
+
+    /* Glass cards */
+    .cards{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px
+    }
+
+    .card{
+      background:var(--glass);
+      backdrop-filter:blur(14px);
+      padding:35px;border-radius:22px;
+      transition:transform .4s, box-shadow .4s
+    }
+
+    .card:hover{
+      transform:translateY(-15px) rotateX(6deg) rotateY(-6deg) scale(1.05);
+      box-shadow:0 30px 80px rgba(0,0,0,.4)
+    }
+
+    /* About */
+    .about{
+      display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center
+    }
+
+    .about p{line-height:1.8;opacity:.9}
+
+    /* Timeline */
+    .timeline{position:relative;max-width:900px;margin:auto}
+    .timeline::before{
+      content:"";position:absolute;left:50%;width:4px;height:100%;
+      background:linear-gradient(var(--primary),var(--secondary))
+    }
+
+    .event{
+      width:45%;padding:25px;background:var(--card);
+      border-radius:18px;position:relative;margin:30px 0
+    }
+
+    .event.left{left:0}
+    .event.right{left:55%}
+
+    /* Projects spotlight */
+    .project{
+      position:relative;overflow:hidden
+    }
+
+    .project::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(120deg,transparent,var(--secondary),transparent);
+      transform:translateX(-100%);transition:.6s
+    }
+
+    .project:hover::after{transform:translateX(100%)}
+
+    footer{text-align:center;padding:40px;opacity:.7}
+
+    @media(max-width:900px){
+      .about{grid-template-columns:1fr}
+      .timeline::before{left:10px}
+      .event{width:100%;left:20px}
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Ruba | Staff SDET&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1 { font-size: 36px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h2 { margin-top: 40px; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>a { color: #2563eb; text-decoration: none; }</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;h1&gt;Hi, I'm Ruba 👋&lt;/h1&gt;</p>
-<p class="p1">&lt;p&gt;</p>
-<p class="p1">Staff-level SDET specializing in scalable automation frameworks,</p>
-<p class="p1">CI/CD pipelines, and quality engineering for high-traffic systems.</p>
-<p class="p1">&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;h2&gt;Skills&lt;/h2&gt;</p>
-<p class="p1">&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;li&gt;Java, Selenium, Appium&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;li&gt;REST Assured, API Automation&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;li&gt;CI/CD (Jenkins, GitHub Actions)&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;li&gt;Test Architecture &amp; Framework Design&lt;/li&gt;</p>
-<p class="p1">&lt;/ul&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;h2&gt;Projects&lt;/h2&gt;</p>
-<p class="p1">&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;b&gt;Unified Automation Framework&lt;/b&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>Built a single framework for API + UI + Mobile with parallel execution.</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/li&gt;</p>
-<p class="p1">&lt;/ul&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;h2&gt;Blog&lt;/h2&gt;</p>
-<p class="p1">&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;li&gt;&lt;a href="#"&gt;How I reduced regression time from 6 hours to 45 minutes&lt;/a&gt;&lt;/li&gt;</p>
-<p class="p1">&lt;/ul&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;h2&gt;Contact&lt;/h2&gt;</p>
-<p class="p1">&lt;p&gt;</p>
-<p class="p1">&lt;a href="https://github.com/yourusername"&gt;GitHub&lt;/a&gt; |</p>
-<p class="p1">&lt;a href="https://linkedin.com/in/yourprofile"&gt;LinkedIn&lt;/a&gt;</p>
-<p class="p1">&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<div class="cursor" id="cursor"></div>
+
+<div class="particles">
+  <span style="left:10%;animation-delay:0s"></span>
+  <span style="left:30%;animation-delay:3s"></span>
+  <span style="left:50%;animation-delay:6s"></span>
+  <span style="left:70%;animation-delay:9s"></span>
+  <span style="left:90%;animation-delay:12s"></span>
+</div>
+
+<div class="toggle" onclick="toggleMode()">🌗</div>
+
+<header>
+  <div class="hero" data-aos="zoom-in">
+    <h1>Hi, I'm <span>Ruba</span></h1>
+    <p>Staff SDET | Automation Architect | AI-driven Quality</p>
+    <a class="btn" href="./Rubapranesh_CV.pdf" download>Download Resume</a>
+    <div>
+      <a class="btn" href="https://github.com/rubapranesh/AllPrograms" target="_blank"><i class="fab fa-github"></i></a>
+      <a class="btn" href="https://www.linkedin.com/in/rubapranesh-thangavel-80582512b/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <h2 data-aos="fade-up">About Me</h2>
+  <div class="about">
+    <p data-aos="fade-right">
+      I am a Staff SDET specializing in building scalable automation platforms across Web, Mobile, and APIs.
+      I focus on engineering-quality, CI/CD acceleration, and AI-assisted testing to reduce release risk
+      while maximizing delivery speed.
+    </p>
+    <div class="cards" data-aos="fade-left">
+      <div class="card">Java · Selenium · Appium · Playwright</div>
+      <div class="card">CI/CD · Docker · Parallel Execution</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-aos="fade-up">Projects</h2>
+  <div class="cards">
+    <div class="card project" data-aos="flip-left">
+      <h3>Unified Automation Framework</h3>
+      <p>Single framework covering Web, Mobile & API with retries, reports and self-healing.</p>
+    </div>
+    <div class="card project" data-aos="flip-left" data-aos-delay="150">
+      <h3>Massive CI Scale</h3>
+      <p>Executed 1000+ tests in parallel across VMs with 70% runtime reduction.</p>
+    </div>
+    <div class="card project" data-aos="flip-left" data-aos-delay="300">
+      <h3>AI Quality Signals</h3>
+      <p>Failure clustering, flaky detection and predictive test insights.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-aos="fade-up">Automation Journey</h2>
+  <div class="timeline">
+    <div class="event left" data-aos="fade-right">Manual → Automation Foundations</div>
+    <div class="event right" data-aos="fade-left">Framework Architect</div>
+    <div class="event left" data-aos="fade-right">AI-driven Quality & Scale</div>
+  </div>
+</section>
+
+<footer>© 2026 Ruba · Crafted at Staff+ Level 🚀</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({duration:1200,once:true});
+  function toggleMode(){document.body.classList.toggle('light')}
+  const c=document.getElementById('cursor');
+  document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px'})
+</script>
+
 </body>
 </html>
